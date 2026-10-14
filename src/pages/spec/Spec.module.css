@@ -1,0 +1,275 @@
+.layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  width: var(--page);
+  margin: 0 auto;
+}
+
+.sidebar {
+  position: sticky;
+  top: 64px;
+  align-self: start;
+  max-height: calc(100vh - 64px);
+  padding: 32px 4px 32px 0;
+  overflow-y: auto;
+}
+
+.heading {
+  margin: 0 0 14px;
+  font: 500 0.75rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.picker {
+  display: none;
+}
+
+.chapters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapters a {
+  display: flex;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  text-decoration: none;
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.chapters a:hover {
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+
+.chapters a[aria-current="page"] {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--ink);
+}
+
+.number {
+  flex: none;
+  font: 500 0.78rem / 1.6 var(--mono);
+  color: var(--faint);
+}
+
+.chapters a[aria-current="page"] .number {
+  color: var(--accent);
+}
+
+.main {
+  min-width: 0;
+  max-width: 780px;
+  padding: 40px 0 0;
+}
+
+.article {
+  min-height: 60vh;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.article :global(h1) {
+  margin: 0 0 24px;
+  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.article :global(h2) {
+  margin: 56px 0 16px;
+  font-size: 1.6rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.article :global(h3) {
+  margin: 36px 0 12px;
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.article :global(h4) {
+  margin: 28px 0 10px;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.article :global(:is(h2, h3, h4)) {
+  scroll-margin-top: 88px;
+}
+
+.article :global(p),
+.article :global(ul),
+.article :global(ol) {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.article :global(li) {
+  margin: 6px 0;
+}
+
+.article :global(strong) {
+  color: var(--ink);
+}
+
+.article :global(a) {
+  color: var(--ink);
+  text-decoration-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  text-underline-offset: 3px;
+}
+
+.article :global(a:hover) {
+  text-decoration-color: var(--accent);
+}
+
+.article :global(code) {
+  font: 500 0.88em var(--mono);
+  color: var(--ink);
+}
+
+.article :global(pre) {
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.article :global(pre code) {
+  font: 400 0.84rem / 1.7 var(--mono);
+}
+
+.article :global(.t-comment) {
+  color: var(--faint);
+  font-style: italic;
+}
+
+.article :global(.t-keyword) {
+  color: var(--accent);
+}
+
+.article :global(.t-type) {
+  color: var(--code-type);
+}
+
+.article :global(:is(.t-number, .t-text)) {
+  color: var(--code-literal);
+}
+
+.article :global(table) {
+  display: block;
+  margin: 0 0 20px;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.article :global(:is(th, td)) {
+  padding: 10px 16px 10px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article :global(th) {
+  font-weight: 600;
+}
+
+.article :global(td) {
+  color: var(--muted);
+}
+
+.article :global(blockquote) {
+  margin: 0 0 16px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+}
+
+.footer {
+  display: grid;
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pager a {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.pager a:hover {
+  border-color: var(--ink);
+}
+
+.pager a[rel="next"] {
+  grid-column: 2;
+  text-align: right;
+}
+
+.pager span {
+  font: 500 0.75rem var(--mono);
+  color: var(--muted);
+}
+
+.source {
+  font: 500 0.8rem var(--mono);
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .sidebar {
+    position: static;
+    max-height: none;
+    padding: 24px 0 0;
+  }
+
+  .sidebar nav {
+    display: none;
+  }
+
+  .picker {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: var(--surface);
+    font: inherit;
+    color: var(--ink);
+  }
+
+  .main {
+    padding-top: 24px;
+  }
+}

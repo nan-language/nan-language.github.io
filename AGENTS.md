@@ -2,36 +2,40 @@
 
 ## Project
 
-The website of the NaN Initiative, served by GitHub Pages: a landing page presenting the initiative and its projects, the nan programming language and the NaNOS kernel and operating system.
+The website of NaN, served by GitHub Pages: a landing page that presents the NaN language, a getting started guide and the language specification.
 
 ## Architecture
 
-A static single-page React app in TypeScript, built by Vite. `index.html` loads `src/main.tsx`, which mounts the React tree. The GitHub Actions workflow checks and builds every push and deploys `dist/` to GitHub Pages from `main`.
+A static multi-page React app in TypeScript, built by Vite. Each page has an HTML entry that loads `src/pages/<page>/index.tsx`, which renders the page inside the shared layout of `src/layout/`; `src/links.ts` lists the pages and external links. Pages style themselves with CSS modules over the theme tokens in `src/styles/global.css`. The specification page renders the chapters that `pnpm spec` fetches from the nan repository into `.spec/`, through the Vite plugin in `tools/spec/`. The GitHub Actions workflow checks and builds every push and deploys `dist/` to GitHub Pages from `main`.
 
 Only what an agent needs to place a change correctly. The why is in ADRs.
 
 ## Layout
 
-| Path                | Holds                                       |
-| ------------------- | ------------------------------------------- |
-| `src/`              | The site's source                           |
-| `tests/`            | Tests, mirroring `src/`, and the test setup |
-| `docs/decisions/`   | ADRs                                        |
-| `.github/workflows` | The check, build and deploy workflow        |
+| Path                        | Holds                                                    |
+| --------------------------- | -------------------------------------------------------- |
+| `src/`                      | The site's source                                        |
+| `tools/`                    | Build tools: the specification fetch and renderer        |
+| `getting-started/`, `spec/` | HTML entries of the pages beyond the home page           |
+| `public/`                   | Files served as-is: favicon, social image                |
+| `tests/`                    | Tests, mirroring `src/` and `tools/`, and the test setup |
+| `docs/decisions/`           | ADRs                                                     |
+| `.github/workflows`         | The check, build and deploy workflow                     |
 
 One row per top-level directory; deeper only where the tree alone would not tell an agent where a change belongs.
 
 ## Commands
 
-| Command                  | Purpose                                  |
-| ------------------------ | ---------------------------------------- |
-| `pnpm install`           | Install dependencies                     |
-| `pnpm format`            | Format all files                         |
-| `pnpm format:check`      | Check formatting                         |
-| `pnpm lint`              | Lint                                     |
-| `pnpm test`              | Run all tests                            |
-| `pnpm test tests/<path>` | Run the tests under one path             |
-| `pnpm build`             | Type-check and build the site to `dist/` |
+| Command                  | Purpose                                                           |
+| ------------------------ | ----------------------------------------------------------------- |
+| `pnpm install`           | Install dependencies                                              |
+| `pnpm spec`              | Fetch the specification into `.spec/`                             |
+| `pnpm format`            | Format all files                                                  |
+| `pnpm format:check`      | Check formatting                                                  |
+| `pnpm lint`              | Lint                                                              |
+| `pnpm test`              | Run all tests                                                     |
+| `pnpm test tests/<path>` | Run the tests under one path                                      |
+| `pnpm build`             | Fetch the specification, type-check and build the site to `dist/` |
 
 Design each command for who runs it: agent-facing commands run without interaction, accept a scope where one applies and print only what an agent needs. Agent-facing commands are listed here, human-facing ones in README.md, shared ones in both.
 

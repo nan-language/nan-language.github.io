@@ -1,0 +1,33 @@
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.primary {
+  background: var(--accent);
+  color: #0b0b0c;
+}
+
+.secondary {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary:hover {
+  border-color: var(--ink);
+}

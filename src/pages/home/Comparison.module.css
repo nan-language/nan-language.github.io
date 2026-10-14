@@ -1,0 +1,90 @@
+.scroll {
+  margin-top: clamp(32px, 4vw, 48px);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: inherit;
+  vertical-align: middle;
+}
+
+.table thead th {
+  padding: 16px 0;
+  font: 600 0.95rem var(--sans);
+  text-align: center;
+}
+
+.table thead th.nan {
+  border-radius: 14px 14px 0 0;
+  color: var(--accent);
+}
+
+.nan,
+.rust,
+.cpp {
+  width: clamp(64px, 11vw, 140px);
+  text-align: center;
+}
+
+.table .nan {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.group th,
+.group td {
+  padding: 36px 0 10px;
+  font: 500 0.75rem var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.label {
+  display: block;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.detail {
+  display: block;
+  max-width: 52ch;
+  margin-top: 4px;
+  padding-right: 24px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.yes,
+.no {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.yes {
+  background: var(--line);
+  color: var(--ink);
+}
+
+.nan .yes {
+  background: var(--accent);
+  color: #0b0b0c;
+}
+
+.no {
+  color: var(--faint);
+}

@@ -1,6 +1,6 @@
-# NaN Initiative website
+# NaN website
 
-The website of the NaN Initiative, a collection of projects that rethink the foundations of computing for AI: the nan programming language and the NaNOS kernel and operating system. It is published at https://nan-initiative.github.io.
+The website of NaN, a systems language for the AI era: a landing page, a getting started guide and the language specification. It is published at https://nan-language.github.io.
 
 ## Installation
 
@@ -13,18 +13,20 @@ pnpm install
 ## Usage
 
 ```bash
+pnpm spec
 pnpm dev
 ```
 
-Serves the site locally with live reload. `pnpm build` writes the static site to `dist/` and `pnpm preview` serves that build. Pushes to `main` are deployed to GitHub Pages.
+`pnpm spec` fetches the language specification from the [nan repository](https://github.com/nan-language/nan) into `.spec/`; run it again to update it. `pnpm dev` then serves the site locally with live reload. `pnpm build` fetches the specification and writes the static site to `dist/` and `pnpm preview` serves that build. Pushes to `main` are deployed to GitHub Pages.
 
 ## Commands
 
-| Command        | Purpose                                  |
-| -------------- | ---------------------------------------- |
-| `pnpm dev`     | Serve the site locally with live reload  |
-| `pnpm build`   | Type-check and build the site to `dist/` |
-| `pnpm preview` | Serve the built site                     |
-| `pnpm format`  | Format all files                         |
-| `pnpm lint`    | Lint                                     |
-| `pnpm test`    | Run all tests                            |
+| Command        | Purpose                                                           |
+| -------------- | ----------------------------------------------------------------- |
+| `pnpm spec`    | Fetch the specification into `.spec/`                             |
+| `pnpm dev`     | Serve the site locally with live reload                           |
+| `pnpm build`   | Fetch the specification, type-check and build the site to `dist/` |
+| `pnpm preview` | Serve the built site                                              |
+| `pnpm format`  | Format all files                                                  |
+| `pnpm lint`    | Lint                                                              |
+| `pnpm test`    | Run all tests                                                     |

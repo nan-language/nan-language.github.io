@@ -1,0 +1,89 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  width: 1600px;
+  height: 1000px;
+  background: radial-gradient(ellipse, var(--glow), transparent 62%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    #000 0%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+.inner {
+  position: relative;
+  width: var(--page);
+  margin: 0 auto;
+  padding: clamp(56px, 9vh, 96px) 0 0;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  font: 500 0.85rem var(--mono);
+  color: var(--muted);
+}
+
+.kicker::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.8rem, 6.4vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.line {
+  display: block;
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px 48px;
+  margin: clamp(24px, 3vw, 36px) 0 clamp(48px, 5vw, 64px);
+}
+
+.lead {
+  max-width: 44ch;
+  margin: 0;
+  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

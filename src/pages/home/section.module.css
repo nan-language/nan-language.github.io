@@ -1,0 +1,26 @@
+.section {
+  width: var(--page);
+  margin: 0 auto;
+  padding: clamp(80px, 10vw, 128px) 0 0;
+}
+
+.title {
+  max-width: 18ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.title span {
+  color: var(--faint);
+}
+
+.lead {
+  max-width: 56ch;
+  margin: 20px 0 0;
+  font-size: clamp(1.02rem, 1.3vw, 1.12rem);
+  color: var(--muted);
+}
